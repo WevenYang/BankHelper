@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.FeedbackActivity">
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        style="@style/CommonToolBarSty"
+        android:id="@+id/cb_title_announcement"
+        app:middleText="定期"
+        app:isLeftImgClickToFinishAcy="true"
+        >
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View
+        android:id="@+id/v_div1"
+        android:layout_below="@+id/cb_title_announcement"
+        style="@style/HorizontalViewSty"
+        />
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_below="@+id/v_div1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="60%w"
+        android:background="@color/grey"
+        android:id="@+id/prl_title"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="5%w"
+            android:textColor="@color/white"
+            android:text="定期内余额"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/tv_hint"
+            />
+
+        <TextView
+            android:id="@+id/tv_deposit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="15%w"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_below="@+id/prl_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_above="@+id/prl_content1"
+                android:text="高收益"
+                />
+
+            <TextView
+                android:id="@+id/prl_content1"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/deepGrey"
+                android:text="稳定收益\n优质债券"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_above="@+id/prl_content2"
+                android:text="100%兑付"
+                />
+
+            <TextView
+                android:id="@+id/prl_content2"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/deepGrey"
+                android:text="权威担保\n本息保障"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_above="@+id/prl_content3"
+                android:text="高效活期"
+                />
+
+            <TextView
+                android:id="@+id/prl_content3"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/deepGrey"
+                android:text="每日结息\n随进随出"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_heightPercent="8%h">
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/importOut"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/middleBlue"
+                android:text="转出"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <View
+            style="@style/VerticalViewSty"
+            />
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/importIn"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/middleBlue"
+                android:text="转入"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>

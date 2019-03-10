@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.FeedbackActivity">
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        style="@style/CommonToolBarSty"
+        android:id="@+id/cb_title_announcement"
+        app:middleText="风险举报"
+        app:isLeftImgClickToFinishAcy="true"
+        >
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View
+        android:id="@+id/v_div1"
+        android:layout_below="@+id/cb_title_announcement"
+        style="@style/HorizontalViewSty"
+        />
+
+    <EditText
+        android:background="@null"
+        android:layout_below="@+id/v_div1"
+        app:layout_textSizePercent="5%w"
+        android:id="@+id/et_content_riskAcy"
+        android:gravity="left"
+        android:hint="请输入要举报的内容"
+        app:layout_marginPercent="2%w"
+        app:layout_paddingPercent="2%w"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="35%h"
+        android:maxLength="400"/>
+
+    <View
+        android:id="@+id/v_div3"
+        android:layout_below="@+id/et_content_feedBackAcy"
+        style="@style/HorizontalViewSty"
+        />
+
+    <Button
+        android:layout_below="@+id/et_content_riskAcy"
+        app:layout_marginTopPercent="3%w"
+        android:id="@+id/bt_commit_riskAcy"
+        style="@style/ExitLoginButtonSty"
+        android:background="@drawable/sel_login"
+        android:text="发送"
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>

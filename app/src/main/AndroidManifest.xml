@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.weven.bankapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="READ_PHONE_STATE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".Activity.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/nav_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activity.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.BandCardActivity" />
+        <activity android:name=".Activity.AboutActivity" />
+        <activity android:name=".Activity.SettingActivity" />
+        <activity android:name=".Activity.SecurityActivity" />
+        <activity android:name=".Activity.FeedbackActivity" />
+        <activity android:name=".Activity.RiskActivity" />
+        <activity android:name=".Activity.MachineInfoActivity" />
+        <activity android:name=".Activity.CardLoginActivity" />
+        <activity android:name=".Activity.TransferAccountActivity" />
+        <activity android:name=".Activity.PersonInfoActivity" />
+        <activity android:name=".Activity.TransferToActivity" />
+        <activity android:name=".Activity.PeopleAccountActivity" />
+        <activity android:name=".Activity.CardIdentifyActivity" />
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:launchMode="singleTask"
+            >
+
+        </activity>
+        <activity android:name=".Activity.RegisterActivity" />
+        <activity android:name=".Activity.Exchange1" />
+        <activity android:name=".Activity.Exchange2" />
+        <activity android:name=".Activity.MyAccountActivity" >
+
+        </activity>
+        <activity android:name=".Activity.TransferActivity" />
+        <activity android:name=".Activity.RechargeActivity" />
+        <activity android:name=".Activity.QueryBalanceActivity" />
+        <activity android:name=".Activity.MyMessageActivity"></activity>
+        <activity android:name=".Activity.WithDrawActivity"></activity>
+    </application>
+
+</manifest>

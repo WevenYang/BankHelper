@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BannerLayout">
+        <attr name="selectedIndicatorColor" format="color|reference"/>
+        <attr name="unSelectedIndicatorColor" format="color|reference"/>
+        <attr name="indicatorShape" format="enum">
+            <enum name="rect" value="0"/>
+            <enum name="oval" value="1"/>
+        </attr>
+        <attr name="selectedIndicatorHeight" format="dimension|reference"/>
+        <attr name="selectedIndicatorWidth" format="dimension|reference"/>
+        <attr name="unSelectedIndicatorHeight" format="dimension|reference"/>
+        <attr name="unSelectedIndicatorWidth" format="dimension|reference"/>
+        <attr name="indicatorPosition" format="enum">
+            <enum name="centerBottom" value="0"/>
+            <enum name="rightBottom" value="1"/>
+            <enum name="leftBottom" value="2"/>
+            <enum name="centerTop" value="3"/>
+            <enum name="rightTop" value="4"/>
+            <enum name="leftTop" value="5"/>
+        </attr>
+        <attr name="indicatorSpace" format="dimension|reference"/>
+        <attr name="indicatorMargin" format="dimension|reference"/>
+        <attr name="autoPlayDuration" format="integer|reference"/>
+        <attr name="scrollDuration" format="integer|reference"/>
+        <attr name="isAutoPlay" format="boolean"/>
+        <attr name="defaultImage" format="integer|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_borderWidth" format="dimension" />
+        <attr name="civ_borderColor" format="color" />
+        <attr name="civ_borderOverlay" format="boolean" />
+        <attr name="civ_fillColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CommonToolBar">
+        <attr name="titleBackGround" format="color"/>
+        <attr name="leftImage" format="reference"/>
+        <attr name="isShowLeftImage" format="boolean"/>
+        <attr name="leftText" format="string"/>
+        <attr name="leftTextColor" format="color"/>
+        <attr name="isShowLeftText" format="boolean"/>
+        <attr name="middleText" format="string"/>
+        <attr name="middleTextColor" format="color"/>
+        <attr name="isShowMiddleText" format="boolean"/>
+        <attr name="rightText" format="string"/>
+        <attr name="rightTextColor" format="color"/>
+        <attr name="isShowRightText" format="boolean"/>
+        <attr name="rightImage" format="reference"/>
+        <attr name="isShowRightImage" format="boolean"/>
+        <attr name="isLeftImgClickToFinishAcy" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="TextViewPlus">
+        <attr name="leftImgHeightScale" format="float"/>
+        <attr name="leftImgWidthScale" format="float"/>
+        <attr name="rightImgHeightScale" format="float"/>
+        <attr name="rightImgWidthScale" format="float"/>
+        <attr name="topImgHeightScale" format="float"/>
+        <attr name="topImgWidthScale" format="float"/>
+        <attr name="bottomImgHeightScale" format="float"/>
+        <attr name="bottomImgWidthScale" format="float"/>
+        <attr name="referenceObject" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="HorizontalBarInSettingsAcy">
+        <attr name="leftText_bar" format="string"/>
+        <attr name="leftImg_bar" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="PullToLoadLayout">
+        <attr name="behindBackGround" format="color" />
+        <attr name="headFootViewTextColor" format="color" />
+        <attr name="damping" format="float" />
+        <attr name="pullUpImg" format="reference" />
+        <attr name="dropDownImg" format="reference" />
+        <attr name="loadingImg" format="reference" />
+        <attr name="type" format="enum">
+            <enum name="dropDown" value="0" />
+            <enum name="pullUp" value="1" />
+            <enum name="dropAndPull" value="2" />
+        </attr>
+    </declare-styleable>
+
+</resources>

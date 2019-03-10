@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.FeedbackActivity">
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        style="@style/CommonToolBarSty"
+        android:id="@+id/cb_title_announcement"
+        app:middleText="我的账户"
+        app:isLeftImgClickToFinishAcy="true"
+        >
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View
+        android:id="@+id/v_div1"
+        android:layout_below="@+id/cb_title_announcement"
+        style="@style/HorizontalViewSty"
+        />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v_div1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout2"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title2"
+                    android:textSize="20sp"
+                    android:text="总资产"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line2"
+                    android:layout_below="@+id/title2"
+                    android:background="@color/grey"
+                    />
+
+                <TextView
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content2"
+                    android:layout_below="@+id/title2"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/waiting"
+                    android:textSize="20sp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title3"
+                    android:textSize="20sp"
+                    android:text="活期余额"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line3"
+                    android:layout_below="@+id/title3"
+                    android:background="@color/grey"
+                    />
+
+                <TextView
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content3"
+                    android:layout_below="@+id/title3"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/waiting"
+                    android:textSize="20sp"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout4"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title4"
+                    android:textSize="20sp"
+                    android:text="定期余额"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line4"
+                    android:layout_below="@+id/title4"
+                    android:background="@color/grey"
+                    />
+
+                <TextView
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content4"
+                    android:layout_below="@+id/title4"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/waiting"
+                    android:textSize="20sp"/>
+
+            </RelativeLayout>
+
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout5"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title5"
+                    android:textSize="20sp"
+                    android:text="类型分布"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line5"
+                    android:layout_below="@+id/title5"
+                    android:background="@color/grey"
+                    />
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:layout_below="@+id/line5"
+                    android:id="@+id/bc_piechart_reportAcy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:layout_heightPercent="60%w"
+                    />
+
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</com.zhy.android.percent.support.PercentRelativeLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.TransferToActivity">
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        style="@style/CommonToolBarSty"
+        android:id="@+id/cb_title_announcement"
+        app:middleText="转账"
+        app:isLeftImgClickToFinishAcy="true"
+        >
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View
+        android:id="@+id/v_div1"
+        android:layout_below="@+id/cb_title_announcement"
+        style="@style/HorizontalViewSty"
+        />
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对方账户"
+            android:layout_centerVertical="true"
+            app:layout_textSizePercent="4.5%w"
+            />
+
+        <EditText
+            android:id="@+id/et_people_account"
+            android:layout_centerVertical="true"
+            android:hint="对方账号/手机号码"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tv_name"
+            android:background="@null"
+            app:layout_widthPercent="50%w" />
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/nav_icon_transfer"
+            app:layout_widthPercent="10%w"
+            app:layout_heightPercent="10%w"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="钱将实时转入对方账户，无法退款"/>
+
+    <Button
+        android:id="@+id/bt_transfer_next"
+        style="@style/LoginFragButtonSty"
+        android:text="下一步" />
+</com.zhy.android.percent.support.PercentLinearLayout>

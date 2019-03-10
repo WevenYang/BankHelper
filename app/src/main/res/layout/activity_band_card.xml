@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        android:id="@+id/rl_commonToolBar"
+        style="@style/CommonToolBarSty"
+        app:isShowLeftImage="true"
+        app:layout_heightPercent="9.36133%h"
+        app:isLeftImgClickToFinishAcy="true"
+        app:isShowRightImage="true"
+        app:rightImage="@mipmap/add"
+        app:middleText="已绑定银行卡">
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View style="@style/HorizontalViewSty"/>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+</com.zhy.android.percent.support.PercentLinearLayout>

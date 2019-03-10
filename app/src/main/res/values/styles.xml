@@ -1,0 +1,120 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- 水平分割线-->
+    <style name="HorizontalViewSty">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/lightGrey</item>
+    </style>
+    <!-- 垂直分割线-->
+    <style name="VerticalViewSty">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/lightGrey</item>
+    </style>
+    <!-- 通用标题栏中的TextView风格-->
+    <style name="CommonToolBarTextViewStyle">
+        <!--<item name="android:background">@drawable/sel_common_press_effect1</item>-->
+        <item name="android:text">课程</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!-- 通用标题栏-->
+    <style name="CommonToolBarSty">
+        <item name="layout_heightPercent">8.56%h</item>
+        <item name="isShowLeftImage">true</item>
+        <item name="leftImage">@drawable/back</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <!-- “我的”中最左侧TextViewPlus-->
+    <style name="LeftTextViewPlusStyMineFrag">
+        <item name="leftImgHeightScale">0.035</item>
+        <item name="leftImgWidthScale">0.035</item>
+        <item name="layout_textSizePercent">5%w</item>
+        <item name="layout_paddingPercent">4%w</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/lightBlack</item>
+    </style>
+
+    <style name="ExitLoginButtonSty">
+        <item name="layout_textSizePercent">5.4%w</item>
+        <item name="layout_marginTopPercent">6%w</item>
+        <item name="layout_marginRightPercent">3%w</item>
+        <item name="layout_marginLeftPercent">3%w</item>
+        <item name="layout_heightPercent">12%w</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!-- 登录按钮-->
+    <style name="LoginFragButtonSty">
+        <item name="layout_heightPercent">7.5%h</item>
+        <item name="layout_marginLeftPercent">4%w</item>
+        <item name="layout_marginRightPercent">4%w</item>
+        <item name="layout_marginTopPercent">2%h</item>
+        <item name="layout_textSizePercent">5.5%w</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/sel_login</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:clickable">false</item>
+    </style>
+    <!-- 密码输入EditText-->
+    <style name="PassWordEditTextSty">
+        <item name="android:visibility">gone</item>
+        <item name="layout_heightPercent">8.56%h</item>
+        <item name="android:background">@color/white</item>
+        <item name="layout_textSizePercent">5%w</item>
+        <item name="layout_paddingLeftPercent">4%w</item>
+        <item name="android:hint">请输入(6~12)位密码</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:maxLength">12</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/lightBlack</item>
+        <item name="android:textColorHint">@color/middleGrey</item>
+    </style>
+    <!-- 绑定对话框-->
+    <style name="BindAccountDialogSty" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <!-- 通用垂直PercentLinearLayout-->
+    <style name="CommonVerticalPercentLinearLayoutSty">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/paleGrey</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <!-- 分享窗口动画-->
+    <style name="SharePopupWindowAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/ppw_slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/ppw_slide_out_to_bottom</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    android:id="@+id/prl_mine_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sel_common_press_effect3">
+    <com.example.weven.bankapp.View.TextViewPlus
+        android:id="@+id/tvp_left_horizontalBarCvSettingsAcy"
+        style="@style/LeftTextViewPlusStyMineFrag"
+        android:text="收藏课程"/>
+    <ImageView
+        android:id="@+id/iv_right_horizontalBarCvSettingsAcy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/arrow_right_black"
+        app:layout_heightPercent="5%w"
+        app:layout_marginRightPercent="4%w"
+        app:layout_widthPercent="5%w"/>
+    <TextView
+        android:id="@+id/tv_right_horizontalBarCvSettingsAcy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/iv_right_horizontalBarCvSettingsAcy"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        app:layout_marginRightPercent="3%w"
+        app:layout_textSizePercent="5%w"/>
+</com.zhy.android.percent.support.PercentRelativeLayout>

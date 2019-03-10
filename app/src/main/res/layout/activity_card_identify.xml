@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CardIdentifyActivity">
+
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onScanPress"
+        android:text="银行卡识别"/>
+
+
+    <TextView
+        android:id="@+id/card_tv"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="银行卡号"/>
+
+</com.zhy.android.percent.support.PercentLinearLayout>

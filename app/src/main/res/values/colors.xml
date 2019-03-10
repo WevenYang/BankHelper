@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7f7f7f</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
+    <!--深黑色-->
+    <color name="lightBlack">#333333</color>
+    <!--透明黑-->
+    <color name="transparentLightBlack">#AA000000</color>
+    <!--透明-->
+    <color name="transparent">@android:color/transparent</color>
+    <!--深灰色-->
+    <color name="deepGrey">#6E6E6E</color>
+    <!--灰色-->
+    <color name="grey">#999999</color>
+    <!--透明灰色-->
+    <color name="transparentGrey">#AA999999</color>
+    <!--<color name="transparentMiddleGrey">#AA666666</color>-->
+    <!--中灰色-->
+    <color name="middleGrey">#CCCCCC</color>
+    <!--透明中灰色-->
+    <color name="transparentMiddleGrey">#AACCCCCC</color>
+    <!--浅灰色-->
+    <color name="lightGrey">#E2E2E2</color>
+    <!--中浅灰色-->
+    <color name="middleLightGrey">#F6F6F6</color>
+    <!--淡灰色-->
+    <color name="paleGrey">#F6F6F6</color>
+    <!--浅蓝色-->
+    <color name="middleBlue">#367ADB</color>
+    <!--透明蓝-->
+    <color name="transparentBlue">#B5EBFF</color>
+    <!--黑蓝色-->
+    <color name="blackBlue">#73A5B7</color>
+    <!--深蓝色-->
+    <color name="deepBlue">#00548A</color>
+    <color name="red">#FF0000</color>
+    <color name="lightRed">#FF3D3D</color>
+    <color name="transparentRed">#AAFF0000</color>
+    <color name="deepYellow">#FFBB38</color>
+    <color name="middleOrange">#FF9900</color>
+    <color name="orange">#FF6600</color>
+    <color name="lightGreen">#228B22</color>
+    <color name="deepGreen">#2E8B57</color>
+    <color name="lightOrange">#ffa861</color>
+    <color name="pink">#fc6c6c</color>
+    <color name="lightBlue">#d7e3f7</color>
+    <color name="text_color">#7f7f7f</color>
+</resources>

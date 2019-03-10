@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">银行小不懂</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="registerOff">完成</string>
+    <string name="forget">忘记密码</string>
+    <string name="home">个人信息</string>
+    <string name="comment">影评圈</string>
+    <string name="account_manager">账户管理</string>
+    <string name="account_message">消息</string>
+    <string name="setting">设置</string>
+    <string name="person_security">安全</string>
+    <string name="security_center">安全中心</string>
+    <string name="loginout">安全退出</string>
+    <string name="waiting">加载中......</string>
+    <string name="not_ready">该功能未完善</string>
+    <string name="check_balance">查询余额</string>
+    <string name="connection">400-889-6688 或 前往本行线下网点进行咨询</string>
+    <string name="figureFilter">0123456789</string>
+    <string name="title_activity_bank_card_login">BankCardLoginActivity</string>
+    <string name="upload_succeed">发送成功</string>
+    <string name="upload_failure">发送失败，请检查接口和网络</string>
+    <string name="load_succeed">加载成功</string>
+    <string name="load_failure">加载失败，请检查接口和网络</string>
+    <string name="login_success">登陆成功</string>
+    <string name="unfinish">该功能正在建设中</string>
+</resources>

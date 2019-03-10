@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    >
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        android:id="@+id/cb_title_aboutPuHuiAcy"
+        style="@style/CommonToolBarSty"
+        app:isLeftImgClickToFinishAcy="true"
+        app:middleText=""
+        >
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="35%h"
+        android:id="@+id/prl_card_icon"
+        >
+
+        <ImageView
+            android:id="@+id/iv_card_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%w"
+            app:layout_heightPercent="25%w"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/nav_icon_people"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/prl_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prl_card_icon"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行卡账号"
+            android:textSize="15sp"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_account_value"
+            android:text="21323423"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/prl_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prl_account"
+        android:paddingTop="5dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行卡密码"
+            android:textSize="15sp"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/white"
+            />
+
+        <EditText
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_pwd_value"
+            android:text="21323423"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <TextView
+        android:paddingRight="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/tv_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/middleBlue"
+        android:text="换一张卡？"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/sel_common_press_effect3"
+        android:layout_below="@+id/prl_pwd"
+        />
+    <Button
+        android:id="@+id/btn_sure"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/tv_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>

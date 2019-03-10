@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        android:id="@+id/rl_commonToolBar"
+        style="@style/CommonToolBarSty"
+        app:isShowLeftImage="true"
+        app:layout_heightPercent="9.36133%h"
+        app:isLeftImgClickToFinishAcy="true"
+        app:isShowRightImage="true"
+        app:rightImage="@mipmap/edit"
+        app:middleText="个人资料">
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View style="@style/HorizontalViewSty"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout1"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title1"
+                    android:textSize="20sp"
+                    android:text="头像"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line1"
+                    android:layout_below="@+id/title1"
+                    android:background="@color/grey"
+                    />
+
+                <ImageView
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/ic_launcher"
+                    android:id="@+id/content1"
+                    android:layout_below="@+id/title1"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/waiting"
+                    android:textSize="15sp"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout2"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title2"
+                    android:textSize="20sp"
+                    android:text="昵称"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line2"
+                    android:layout_below="@+id/title2"
+                    android:background="@color/grey"
+                    />
+
+                <EditText
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:id="@+id/content2"
+                    android:layout_below="@+id/title2"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/waiting"
+                    android:textSize="17sp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout3"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title3"
+                    android:textSize="20sp"
+                    android:text="手机号码"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line3"
+                    android:layout_below="@+id/title3"
+                    android:background="@color/grey"
+                    />
+
+                <EditText
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:id="@+id/content3"
+                    android:layout_below="@+id/title3"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/waiting"
+                    android:maxLength="11"
+                    android:textSize="17sp"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout4"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title4"
+                    android:textSize="20sp"
+                    android:text="性别"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line4"
+                    android:layout_below="@+id/title4"
+                    android:background="@color/grey"
+                    />
+
+                <EditText
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content4"
+                    android:enabled="false"
+                    android:layout_below="@+id/title4"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/waiting"
+                    android:textSize="17sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout5"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title5"
+                    android:textSize="20sp"
+                    android:text="证件类型"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line5"
+                    android:layout_below="@+id/title5"
+                    android:background="@color/grey"
+                    />
+
+                <EditText
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content5"
+                    android:enabled="false"
+                    android:layout_below="@+id/title5"
+                    android:layout_alignParentRight="true"
+                    android:text="居民身份证"
+                    android:textSize="17sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout6"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title6"
+                    android:textSize="20sp"
+                    android:text="证件号码"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:id="@+id/line6"
+                    android:layout_below="@+id/title6"
+                    android:background="@color/grey"
+                    />
+
+                <EditText
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content6"
+                    android:enabled="false"
+                    android:layout_below="@+id/title6"
+                    android:layout_alignParentRight="true"
+                    android:text="4405****1234"
+                    android:textSize="17sp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</com.zhy.android.percent.support.PercentLinearLayout>

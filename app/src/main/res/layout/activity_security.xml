@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    android:id="@+id/dzsv"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        android:id="@+id/rl_commonToolBar"
+        style="@style/CommonToolBarSty"
+        app:isShowLeftImage="true"
+        app:layout_heightPercent="9.36133%h"
+        app:isLeftImgClickToFinishAcy="true"
+        app:isShowRightImage="true"
+        app:middleText="安全中心">
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View style="@style/HorizontalViewSty"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_security"
+        />
+</com.zhy.android.percent.support.PercentLinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="解绑银行卡"
+        android:textColor="@color/lightBlack"
+        app:layout_paddingPercent="4%w"
+        app:layout_textSizePercent="6%w"/>
+    <View style="@style/HorizontalViewSty"/>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_heightPercent="16%h">
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/et_passWord_unbindStudentAccountDig"
+                style="@style/PassWordEditTextSty"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:hint="请输入该账号密码"
+                android:maxLength="25"
+                android:visibility="visible"
+                app:layout_heightPercent="100%h"/>
+            <ImageView
+                android:id="@+id/iv_passWordSwitch_unbindStudentAccountDig"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/password_off"
+                app:layout_paddingPercent="4%w"
+                app:layout_widthPercent="13%w"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <EditText
+                android:id="@+id/et_enterNewPassWord_modifyPayPassWordDig"
+                style="@style/PassWordEditTextSty"
+                android:digits="@string/figureFilter"
+                android:hint="银行卡绑定的联系人姓名"
+                android:inputType="textPassword"
+                android:visibility="visible"
+                android:maxLength="6"
+                app:layout_heightPercent="100%h"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/password_off"
+                app:layout_paddingPercent="4%w"
+                app:layout_widthPercent="13%w"
+                android:visibility="invisible"
+                />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <View style="@style/HorizontalViewSty"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <View style="@style/HorizontalViewSty"/>
+    <Button
+        app:layout_heightPercent="7%h"
+        android:id="@+id/bt_bind_unbindStudentAccountDig"
+        style="@style/LoginFragButtonSty"
+        android:text="解除绑定"
+        app:layout_marginBottomPercent="2%h"/>
+</com.zhy.android.percent.support.PercentLinearLayout>

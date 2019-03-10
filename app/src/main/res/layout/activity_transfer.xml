@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    android:id="@+id/pll_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PeopleAccountActivity">
+
+    <com.example.weven.bankapp.View.CommonToolBar
+        style="@style/CommonToolBarSty"
+        android:id="@+id/cb_title_announcement"
+        app:middleText=""
+        app:isLeftImgClickToFinishAcy="true"
+        >
+    </com.example.weven.bankapp.View.CommonToolBar>
+
+    <View
+        android:id="@+id/v_div1"
+        android:layout_below="@+id/cb_title_announcement"
+        style="@style/HorizontalViewSty"
+        />
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_below="@+id/v_div1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="60%w"
+        android:background="@color/grey"
+        android:id="@+id/prl_title"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="5%w"
+            android:textColor="@color/white"
+            android:text=""
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:id="@+id/tv_hint"
+            />
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="15%w"
+            android:textColor="@color/white"
+            android:text="5000"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="20%w"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="转移金额"
+            />
+
+        <EditText
+            android:numeric="integer"
+            android:digits="1234567890"
+            android:id="@+id/et_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:background="@null"
+            android:hint="￥"
+            />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <Button
+        android:id="@+id/bt_transfer_next"
+        style="@style/LoginFragButtonSty"
+        android:text="确认"
+        android:clickable="false"/>
+</com.zhy.android.percent.support.PercentLinearLayout>
