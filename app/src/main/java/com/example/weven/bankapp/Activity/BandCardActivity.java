@@ -114,7 +114,7 @@ public class BandCardActivity extends BaseActivity {
                             itemCardList.clear();
                         }
                         for (int i = 0; i < response.getData().size(); i++){
-                            BandCardInfo info = new BandCardInfo(response.getData().get(i).getId(), R.mipmap.ic_launcher, "中国建设银行", response.getData().get(i).getCardnum());
+                            BandCardInfo info = new BandCardInfo(response.getData().get(i).getId(), R.mipmap.ic_launcher, "小不懂银行", response.getData().get(i).getCardnum());
                             itemCardList.add(info);
                         }
                         rv_card_list.setLayoutManager(new LinearLayoutManager(BandCardActivity.this));

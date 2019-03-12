@@ -149,7 +149,7 @@ public class WithDrawActivity extends BaseActivity {
                             card.clear();
                         }
                         for (int i = 0; i < response.getData().size(); i++){
-                            BandCardInfo info = new BandCardInfo(response.getData().get(i).getId(), R.mipmap.ic_launcher, "中国建设银行", response.getData().get(i).getCardnum());
+                            BandCardInfo info = new BandCardInfo(response.getData().get(i).getId(), R.mipmap.ic_launcher, "小不懂银行", response.getData().get(i).getCardnum());
                             String content = "建设银行(" + info.getNum().substring(12) + ")";
                             card.add(content);
                         }

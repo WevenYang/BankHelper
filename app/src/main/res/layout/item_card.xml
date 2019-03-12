@@ -23,7 +23,7 @@
                 android:id="@+id/iv_icon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@mipmap/nav_jianshe" />
+                android:background="@mipmap/nav_bank" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                     android:id="@+id/tv_bank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="中国建设银行"
+                    android:text="小不懂银行"
                     android:textColor="#ffffff"
                     android:textSize="18sp" />
 

@@ -3,7 +3,7 @@ package com.example.weven.bankapp.Bean;
 public class Url {
 //    private static String baseUrl = "http://192.168.43.94/dashboard/www/Bank/home/index/";
 //    private static String baseUrl = "http://localhost/dashboard/www/Bank/home/index/";
-    private static String baseUrl = "http://192.168.1.6/dashboard/www/Thinkphp3.2/Bank/home/index/";
+    private static String baseUrl = "http://192.168.6.46/dashboard/www/Thinkphp3.2/Bank/home/index/";
 
     public static String login = baseUrl + "login";     //登陆接口
     public static String feedback = baseUrl + "feedback";  //意见反馈
