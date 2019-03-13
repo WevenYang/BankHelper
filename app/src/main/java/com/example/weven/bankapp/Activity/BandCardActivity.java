@@ -18,6 +18,7 @@ import com.example.weven.bankapp.View.CommonToolBar;
 import com.example.weven.bankapp.View.DeleteAccountDialog;
 import com.example.weven.bankapp.View.ModifyBankCardDig;
 import com.example.weven.bankapp.util.HttpUtil;
+import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.MyToast;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
@@ -157,7 +158,7 @@ public class BandCardActivity extends BaseActivity {
             @Override
             public void onUnBindClick(String passWord) {
 //                    studentAccountPassWord = passWord;
-                if (passWord.equals(BaseApplication.getPayPassword())){
+                if (MD5Util.GetMD5Code(passWord).equals(BaseApplication.getPayPassword())){
                     deleteAccount(userId);
                 }else {
                     MyToast.showMyToast(BandCardActivity.this, "密码错误");

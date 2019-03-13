@@ -18,6 +18,7 @@ import com.example.weven.bankapp.View.EnterPayPassWordPpw;
 import com.example.weven.bankapp.View.PassWordView;
 import com.example.weven.bankapp.util.HttpUtil;
 import com.example.weven.bankapp.util.LogUtil;
+import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.TextUtil;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
@@ -90,7 +91,7 @@ public class PeopleAccountActivity extends BaseActivity {
                 @Override
                 public void onPassWordEnterCompleted(String passWord) {
                     enterPayPassWordPpw.startLoading();
-                    if (passWord.equals(BaseApplication.getPayPassword().toString())){
+                    if (MD5Util.GetMD5Code(passWord).equals(BaseApplication.getPayPassword())){
                         payOrder();
 
                     }else {

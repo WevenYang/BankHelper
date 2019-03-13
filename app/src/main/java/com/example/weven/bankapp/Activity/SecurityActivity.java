@@ -20,6 +20,7 @@ import com.example.weven.bankapp.View.TextViewPlus;
 import com.example.weven.bankapp.util.HttpUtil;
 import com.example.weven.bankapp.util.IntentUtil;
 import com.example.weven.bankapp.util.LogUtil;
+import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
 
@@ -69,7 +70,7 @@ public class SecurityActivity extends BaseActivity {
                                 loginPwdDig.setOnConfirmClickListener(new ModifyPayPassWordDig.OnConfirmClickListener() {
                                     @Override
                                     public void onConfirmClick(String originalPassWord, String newPassWord) {
-                                        if (originalPassWord.equals(BaseApplication.getPassword())){
+                                        if (MD5Util.GetMD5Code(originalPassWord).equals(BaseApplication.getPassword())){
                                             changePwd(originalPassWord, newPassWord);
                                         }else {
                                             ToastUtil.showBottomToast("原登陆密码错误，请重新输入");
@@ -86,7 +87,7 @@ public class SecurityActivity extends BaseActivity {
                                     payPwdDig.setOnConfirmClickListener(new ModifyPayPassWordDig.OnConfirmClickListener() {
                                         @Override
                                         public void onConfirmClick(String originalPassWord, String newPassWord) {
-                                            if (originalPassWord.equals(BaseApplication.getPayPassword())){
+                                            if (MD5Util.GetMD5Code(originalPassWord).equals(BaseApplication.getPayPassword())){
                                                 changePayPwd(originalPassWord, newPassWord);
                                             }else {
                                                 ToastUtil.showBottomToast("原支付密码错误，请重新输入");
@@ -128,7 +129,7 @@ public class SecurityActivity extends BaseActivity {
         Map<String, String> params = new HashMap<>();
         params.put("token", BaseApplication.getToken());
         params.put("formerPwd", originalPassWord);
-        params.put("newPwd", newPassWord);
+        params.put("newPwd", MD5Util.GetMD5Code(newPassWord));
         params.put("userId", BaseApplication.getUserId() + "");
         HttpUtil.postResponse(Url.resetPwd, params, this, new ObjectCallBack<ResultInfo>(ResultInfo.class) {
             @Override
@@ -157,7 +158,7 @@ public class SecurityActivity extends BaseActivity {
         Map<String, String> params = new HashMap<>();
         params.put("token", BaseApplication.getToken());
         params.put("formerPwd", originalPassWord);
-        params.put("newPwd", newPassWord);
+        params.put("newPwd", MD5Util.GetMD5Code(newPassWord));
         params.put("userId", BaseApplication.getUserId() + "");
         HttpUtil.postResponse(Url.resetPayPwd, params, this, new ObjectCallBack<ResultInfo>(ResultInfo.class) {
             @Override
