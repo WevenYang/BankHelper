@@ -1,6 +1,7 @@
 package com.example.weven.bankapp.Activity;
 
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,11 +29,15 @@ import com.example.weven.bankapp.Bean.PeopleAccountInfo;
 import com.example.weven.bankapp.Bean.RechargeSuccessful;
 import com.example.weven.bankapp.Bean.Url;
 import com.example.weven.bankapp.R;
+import com.example.weven.bankapp.View.EnterPayPassWordPpw;
+import com.example.weven.bankapp.View.PassWordView;
 import com.example.weven.bankapp.util.HttpUtil;
 import com.example.weven.bankapp.util.IntentUtil;
+import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.TextUtil;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
+import com.zhy.android.percent.support.PercentLinearLayout;
 import com.zhy.android.percent.support.PercentRelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -52,6 +58,8 @@ public class RechargeActivity extends BaseActivity {
     PercentRelativeLayout rl_card1;
     PopupWindow typeSelectPopup;
     TextView tv_sim_card;
+    EnterPayPassWordPpw enterPayPassWordPpw;
+    PercentLinearLayout pll_parent;
     private ListView mTypeCard;
     private List<String> card;
 
@@ -63,6 +71,7 @@ public class RechargeActivity extends BaseActivity {
         bt_transfer_next = (Button) findViewById(R.id.bt_transfer_next);
         rl_card1 = (PercentRelativeLayout) findViewById(R.id.rl_card1);
         tv_sim_card = (TextView) findViewById(R.id.tv_sim_card);
+        pll_parent = (PercentLinearLayout) findViewById(R.id.pll_parent);
         EventBus.getDefault().register(this);
         initData();
         et_money.addTextChangedListener(new TextWatcher() {
@@ -90,7 +99,7 @@ public class RechargeActivity extends BaseActivity {
         bt_transfer_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rechargeMyAccount();
+                showEnterPayPassWordPpw();
             }
         });
         rl_card1.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +111,54 @@ public class RechargeActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    //输入支付密码进行充值
+    private void showEnterPayPassWordPpw() {
+        if (enterPayPassWordPpw != null && !enterPayPassWordPpw.isShowing()) {
+            enterPayPassWordPpw.restore();
+            enterPayPassWordPpw.showAtLocation(pll_parent, 0, 0, Gravity.BOTTOM);
+        } else if (enterPayPassWordPpw != null && enterPayPassWordPpw.isShowing()) {
+            return;
+        } else {
+            enterPayPassWordPpw = new EnterPayPassWordPpw(this);
+            enterPayPassWordPpw.setOnPassWordEnterCompletedListener(new PassWordView.OnPassWordEnterCompletedListener() {
+                @Override
+                public void onPassWordEnterCompleted(String passWord) {
+                    enterPayPassWordPpw.startLoading();
+                    if (MD5Util.GetMD5Code(passWord).equals(BaseApplication.getPayPassword())){
+                        rechargeMyAccount();
+
+                    }else {
+                        enterPayPassWordPpw.completeLoading(false);
+                        enterPayPassWordPpw.setToastMessage("充值失败");
+                    }
+
+                }
+            });
+
+            enterPayPassWordPpw.setOnDialogClickListener(new EnterPayPassWordPpw.OnDialogClickListener() {
+                @Override
+                public void onDialogClick() {
+                    enterPayPassWordPpw.dismiss();
+//                    EventBus.getDefault().post(new GoToSetPayPassWordMessageEvent());
+                    finish();
+                }
+            });
+            enterPayPassWordPpw.setOnOperateCompletedListener(new EnterPayPassWordPpw.OnOperateCompletedListener() {
+                @Override
+                public void onOperateCompleted(boolean isSuccess) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+//                            EventBus.getDefault().post(new OrderPaySuccessfullyMessageEvent());
+                            finish();
+                        }
+                    }, 1500);
+                }
+            });
+            enterPayPassWordPpw.showAtLocation(pll_parent, 0, 0, Gravity.BOTTOM);
+        }
     }
 
     public void initData(){
@@ -175,13 +232,15 @@ public class RechargeActivity extends BaseActivity {
                 if (response == null){
                     ToastUtil.showBottomToast(R.string.load_failure);
                 }else {
-                    if (response.isSuccess()){
-                        ToastUtil.showBottomToast(response.getMessage());
-                        EventBus.getDefault().post(new RechargeSuccessful());
-                        finish();
-                    }else{
-                        ToastUtil.showBottomToast(response.getMessage());
-                    }
+                        if (response.isSuccess()){
+                            enterPayPassWordPpw.completeLoading(true);
+                            enterPayPassWordPpw.setToastMessage("充值成功");
+                            EventBus.getDefault().post(new RechargeSuccessful());
+                            finish();
+                        }else {
+                            enterPayPassWordPpw.completeLoading(false);
+                            enterPayPassWordPpw.setToastMessage("充值失败("+ response.getMessage() + ")");
+                        }
                 }
             }
 

@@ -13,6 +13,7 @@ public class BaseApplication extends Application {
     private static String userId;
     private static String password;
     private static String payPassword;
+    private static String cardId;
 
     @Override
     public void onCreate() {
@@ -57,8 +58,15 @@ public class BaseApplication extends Application {
         context = getApplicationContext();
     }
 
-
     public static Context getContext() {
         return context;
+    }
+
+    public static String getCardId() {
+        return cardId;
+    }
+
+    public static void setCardId(String cardId) {
+        BaseApplication.cardId = cardId;
     }
 }

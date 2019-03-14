@@ -1,9 +1,11 @@
 package com.example.weven.bankapp.Activity;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +17,14 @@ import com.example.weven.bankapp.Bean.RefreshFixDeposit;
 import com.example.weven.bankapp.Bean.Url;
 import com.example.weven.bankapp.R;
 import com.example.weven.bankapp.View.CommonToolBar;
+import com.example.weven.bankapp.View.EnterPayPassWordPpw;
+import com.example.weven.bankapp.View.PassWordView;
 import com.example.weven.bankapp.util.HttpUtil;
+import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.TextUtil;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
+import com.zhy.android.percent.support.PercentLinearLayout;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -37,6 +43,9 @@ public class TransferActivity extends BaseActivity {
     CommonToolBar cb_title_announcement;
     Bundle bundle;
     String currentDeposit;
+    EnterPayPassWordPpw enterPayPassWordPpw;
+    PercentLinearLayout pll_parent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +57,7 @@ public class TransferActivity extends BaseActivity {
         cb_title_announcement = (CommonToolBar) findViewById(R.id.cb_title_announcement);
         tv_hint = (TextView) findViewById(R.id.tv_hint);
         tv_money = (TextView) findViewById(R.id.tv_money);
+        pll_parent = (PercentLinearLayout) findViewById(R.id.pll_parent);
         if (bundle.getInt("type") == 0){
             tv_hint.setText("当前可转入定期的余额为");
             getCurrentDeposit();
@@ -86,14 +96,14 @@ public class TransferActivity extends BaseActivity {
                     switch (bundle.getInt("type")){
                         case 0:
                             if (Integer.valueOf(currentDeposit) >= Integer.valueOf(et_num.getText().toString())){
-                                postToTransfer();
+                                showEnterPayPassWordPpw();
                             }else {
                                 ToastUtil.showBottomToast("不可超出当前余额");
                             }
                             break;
                         case 1:
                             if (Integer.valueOf(bundle.getString("num")) >= Integer.valueOf(et_num.getText().toString())){
-                                postToTransfer();
+                                showEnterPayPassWordPpw();
                             }else {
                                 ToastUtil.showBottomToast("不可超出当前余额");
                             }
@@ -106,6 +116,54 @@ public class TransferActivity extends BaseActivity {
 
             }
         });
+    }
+
+    //输入支付密码进行转入转出操作
+    private void showEnterPayPassWordPpw() {
+        if (enterPayPassWordPpw != null && !enterPayPassWordPpw.isShowing()) {
+            enterPayPassWordPpw.restore();
+            enterPayPassWordPpw.showAtLocation(pll_parent, 0, 0, Gravity.BOTTOM);
+        } else if (enterPayPassWordPpw != null && enterPayPassWordPpw.isShowing()) {
+            return;
+        } else {
+            enterPayPassWordPpw = new EnterPayPassWordPpw(this);
+            enterPayPassWordPpw.setOnPassWordEnterCompletedListener(new PassWordView.OnPassWordEnterCompletedListener() {
+                @Override
+                public void onPassWordEnterCompleted(String passWord) {
+                    enterPayPassWordPpw.startLoading();
+                    if (MD5Util.GetMD5Code(passWord).equals(BaseApplication.getPayPassword())){
+                        postToTransfer();
+
+                    }else {
+                        enterPayPassWordPpw.completeLoading(false);
+                        enterPayPassWordPpw.setToastMessage("操作失败");
+                    }
+
+                }
+            });
+
+            enterPayPassWordPpw.setOnDialogClickListener(new EnterPayPassWordPpw.OnDialogClickListener() {
+                @Override
+                public void onDialogClick() {
+                    enterPayPassWordPpw.dismiss();
+//                    EventBus.getDefault().post(new GoToSetPayPassWordMessageEvent());
+                    finish();
+                }
+            });
+            enterPayPassWordPpw.setOnOperateCompletedListener(new EnterPayPassWordPpw.OnOperateCompletedListener() {
+                @Override
+                public void onOperateCompleted(boolean isSuccess) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+//                            EventBus.getDefault().post(new OrderPaySuccessfullyMessageEvent());
+                            finish();
+                        }
+                    }, 1500);
+                }
+            });
+            enterPayPassWordPpw.showAtLocation(pll_parent, 0, 0, Gravity.BOTTOM);
+        }
     }
 
     //获取活期余额
@@ -150,12 +208,14 @@ public class TransferActivity extends BaseActivity {
                     ToastUtil.showBottomToast(R.string.load_failure);
                 }else {
                     if (response.isSuccess()){
-                        ToastUtil.showBottomToast(response.getMessage());
+                        enterPayPassWordPpw.completeLoading(true);
+                        enterPayPassWordPpw.setToastMessage("操作成功");
                         bt_transfer_next.setSelected(false);
                         bt_transfer_next.setEnabled(false);
                         EventBus.getDefault().post(new RefreshFixDeposit());
                     }else {
-                        ToastUtil.showBottomToast(response.getMessage());
+                        enterPayPassWordPpw.completeLoading(false);
+                        enterPayPassWordPpw.setToastMessage("操作失败("+ response.getMessage() + ")");
                     }
 
                 }

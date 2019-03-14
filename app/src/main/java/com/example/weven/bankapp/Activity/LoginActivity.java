@@ -41,6 +41,7 @@ import com.example.weven.bankapp.R;
 import com.example.weven.bankapp.util.HttpUtil;
 import com.example.weven.bankapp.util.IntentUtil;
 import com.example.weven.bankapp.util.LogUtil;
+import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.TextUtil;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
@@ -72,7 +73,7 @@ public class LoginActivity extends BaseActivity {
 
                     Map<String, String> params = new HashMap<>();
                     params.put("account", aco.getText().toString());
-                    params.put("password", pwd.getText().toString());
+                    params.put("password", MD5Util.GetMD5Code(pwd.getText().toString()));
                     HttpUtil.postResponse(Url.login, params, this, new ObjectCallBack<LoginInfo>(LoginInfo.class) {
                         @Override
                         public void onSuccess(LoginInfo response) {
@@ -90,7 +91,7 @@ public class LoginActivity extends BaseActivity {
                                         Bundle b = new Bundle();
                                         b.putString("name", response.getData().getName());
                                         b.putString("icon", response.getData().getIcon());
-                                        IntentUtil.startActivity(LoginActivity.this, MainActivity.class, b);
+                                        IntentUtil.startActivity(LoginActivity.this, ChooseCardActivity.class, b);
                                         finish();
                                     }else {
                                         ToastUtil.showBottomToast("账号或者密码有误");

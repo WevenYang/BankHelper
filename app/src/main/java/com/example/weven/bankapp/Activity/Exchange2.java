@@ -1,8 +1,10 @@
 package com.example.weven.bankapp.Activity;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,8 +12,11 @@ import com.example.weven.bankapp.Bean.FeedbackInfo;
 import com.example.weven.bankapp.Bean.RefreshFixDeposit;
 import com.example.weven.bankapp.Bean.Url;
 import com.example.weven.bankapp.R;
+import com.example.weven.bankapp.View.EnterPayPassWordPpw;
+import com.example.weven.bankapp.View.PassWordView;
 import com.example.weven.bankapp.util.HttpUtil;
 import com.example.weven.bankapp.util.IntentUtil;
+import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
 
@@ -27,6 +32,7 @@ import okhttp3.Call;
 public class Exchange2 extends BaseActivity {
 
     TextView importIn, importOut, tv_deposit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
