@@ -19,6 +19,7 @@ import com.example.weven.bankapp.R;
 import com.example.weven.bankapp.View.CommonToolBar;
 import com.example.weven.bankapp.View.EnterPayPassWordPpw;
 import com.example.weven.bankapp.View.PassWordView;
+import com.example.weven.bankapp.util.BigDecimalUtil;
 import com.example.weven.bankapp.util.HttpUtil;
 import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.TextUtil;
@@ -39,12 +40,12 @@ public class TransferActivity extends BaseActivity {
 
     Button bt_transfer_next;
     EditText et_num;
-    TextView tv_hint, tv_money;
+    TextView tv_hint, tv_money, tv_hint_money;
     CommonToolBar cb_title_announcement;
     Bundle bundle;
     String currentDeposit;
     EnterPayPassWordPpw enterPayPassWordPpw;
-    PercentLinearLayout pll_parent;
+    PercentLinearLayout pll_parent, pll_dingqi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,10 @@ public class TransferActivity extends BaseActivity {
         tv_hint = (TextView) findViewById(R.id.tv_hint);
         tv_money = (TextView) findViewById(R.id.tv_money);
         pll_parent = (PercentLinearLayout) findViewById(R.id.pll_parent);
+        pll_dingqi = (PercentLinearLayout) findViewById(R.id.pll_dingqi);
+        tv_hint_money = (TextView) findViewById(R.id.tv_hint_money);
         if (bundle.getInt("type") == 0){
+            pll_dingqi.setVisibility(View.VISIBLE);
             tv_hint.setText("当前可转入定期的余额为");
             getCurrentDeposit();
         }else if(bundle.getInt("type") == 1){
@@ -78,10 +82,17 @@ public class TransferActivity extends BaseActivity {
                 if (TextUtil.isValidate(charSequence)){
                     bt_transfer_next.setClickable(true);
                     bt_transfer_next.setSelected(true);
+                    if (bundle.getInt("type") == 0){
+                        tv_hint_money.setVisibility(View.VISIBLE);
+                        setGiveMoneyText(Integer.valueOf(charSequence.toString()));
+                    }
                 }else {
                     bt_transfer_next.setClickable(false);
                     bt_transfer_next.setSelected(false);
+                    tv_hint_money.setVisibility(View.GONE);
                 }
+
+
             }
 
             @Override
@@ -226,6 +237,11 @@ public class TransferActivity extends BaseActivity {
                 ToastUtil.showBottomToast(R.string.load_failure);
             }
         });
+    }
+
+    private void setGiveMoneyText(double rechargeMoney) {
+        double giveMoney = BigDecimalUtil.mul(rechargeMoney, 0.1);
+        tv_hint_money.setText("到期可获得" + giveMoney + "元");
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

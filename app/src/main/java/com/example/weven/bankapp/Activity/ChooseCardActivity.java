@@ -51,7 +51,7 @@ public class ChooseCardActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_band_card);
+        setContentView(R.layout.activity_choose_card);
         bundle = getIntent().getBundleExtra("Bundle");
         toolbar = (CommonToolBar) findViewById(R.id.rl_commonToolBar);
         rb_item = (RadioButton) findViewById(R.id.rb_item);
@@ -105,6 +105,7 @@ public class ChooseCardActivity extends BaseActivity {
                                 String card = o.getNum().substring(12);
                                 TextView cardNum = holder.getView(R.id.tv_num);
                                 RadioButton rb = holder.getView(R.id.rb_item);
+                                rb.setVisibility(View.VISIBLE);
                                 cardNum.setText("**** **** **** " + card);
                                 rb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                     @Override

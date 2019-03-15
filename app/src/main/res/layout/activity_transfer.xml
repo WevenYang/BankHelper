@@ -52,9 +52,102 @@
             android:layout_centerVertical="true"
             />
 
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/pll_dingqi"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="25%h"
+            android:visibility="gone"
+            >
+
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/shouyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="累积收益（元）"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/shouyi"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="224.05"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    />
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/wanyuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="万元收益（元）"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/wanyuan"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.6455"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    />
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/nianhua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="七日年化（%）"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/nianhua"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2.3650"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    />
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
     </com.zhy.android.percent.support.PercentRelativeLayout>
 
-    <com.zhy.android.percent.support.PercentLinearLayout
+    <com.zhy.android.percent.support.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_heightPercent="20%w"
@@ -62,12 +155,15 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_above="@+id/et_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="转移金额"
             />
 
         <EditText
+            android:maxLength="8"
+            android:layout_alignParentBottom="true"
             android:numeric="integer"
             android:digits="1234567890"
             android:id="@+id/et_num"
@@ -76,8 +172,22 @@
             android:textSize="30sp"
             android:background="@null"
             android:hint="￥"
+            app:layout_widthPercent="60%w"
             />
-    </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/et_num"
+            android:id="@+id/tv_hint_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/lightRed"
+            app:layout_paddingPercent="2%w"
+            android:textSize="15sp"
+            app:layout_widthPercent="30%w"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
     <Button
         android:id="@+id/bt_transfer_next"
         style="@style/LoginFragButtonSty"
