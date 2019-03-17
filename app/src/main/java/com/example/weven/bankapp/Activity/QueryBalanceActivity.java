@@ -57,7 +57,7 @@ public class QueryBalanceActivity extends BaseActivity {
     public void initData(){
         Map<String, String> params = new HashMap<>();
         params.put("token", BaseApplication.getToken());
-        params.put("id", BaseApplication.getUserId());
+        params.put("id", BaseApplication.getCardId());
         HttpUtil.postResponse(Url.queryBalance, params, this, new ObjectCallBack<BalanceInfo>(BalanceInfo.class) {
             @Override
             public void onSuccess(BalanceInfo response) {

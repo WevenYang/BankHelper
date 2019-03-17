@@ -50,7 +50,7 @@ public class MyAccountActivity extends BaseActivity {
     protected void initData() {
         Map<String, String> params = new HashMap<>();
         params.put("token", BaseApplication.getToken());
-        params.put("id", BaseApplication.getUserId());
+        params.put("id", BaseApplication.getCardId());
         HttpUtil.postResponse(Url.getMyAccount, params, this, new ObjectCallBack<MyAccountInfo>(MyAccountInfo.class) {
             @Override
             public void onSuccess(MyAccountInfo response) {

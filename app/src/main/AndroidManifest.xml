@@ -19,7 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Activity.BandCardActivity" />
         <activity android:name=".Activity.AboutActivity" />
@@ -30,11 +34,7 @@
         <activity android:name=".Activity.MachineInfoActivity" />
         <activity android:name=".Activity.CardLoginActivity" />
         <activity android:name=".Activity.TransferFlowActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Activity.PersonInfoActivity" />
         <activity android:name=".Activity.TransferToActivity" />

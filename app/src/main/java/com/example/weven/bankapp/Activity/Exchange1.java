@@ -46,7 +46,7 @@ public class Exchange1 extends BaseActivity {
     protected void initData() {
         Map<String, String> params = new HashMap<>();
         params.put("token", BaseApplication.getToken());
-        params.put("id", BaseApplication.getUserId());
+        params.put("id", BaseApplication.getCardId());
         HttpUtil.postResponse(Url.getCurrentDeposit, params, this, new ObjectCallBack<FeedbackInfo>(FeedbackInfo.class) {
             @Override
             public void onSuccess(FeedbackInfo response) {

@@ -178,6 +178,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                         BaseApplication.setPassword("");
                         BaseApplication.setToken("");
                         BaseApplication.setUserId("");
+                        BaseApplication.setCardId("");
                         account.setText("未登陆");
                         IntentUtil.startActivity(MainActivity.this, LoginActivity.class);
                         finish();

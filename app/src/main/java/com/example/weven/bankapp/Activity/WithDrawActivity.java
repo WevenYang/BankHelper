@@ -256,7 +256,7 @@ public class WithDrawActivity extends BaseActivity {
         }else {
             Map<String, String> params = new HashMap<>();
             params.put("token", BaseApplication.getToken());
-            params.put("id", BaseApplication.getUserId());
+            params.put("id", BaseApplication.getCardId());
             params.put("num", et_money.getText().toString());
             HttpUtil.postResponse(Url.withDraw, params, this, new ObjectCallBack<FeedbackInfo>(FeedbackInfo.class) {
                 @Override

@@ -224,7 +224,7 @@ public class RechargeActivity extends BaseActivity {
     public void rechargeMyAccount(){
         Map<String, String> params = new HashMap<>();
         params.put("token", BaseApplication.getToken());
-        params.put("id", BaseApplication.getUserId());
+        params.put("id", BaseApplication.getCardId());
         params.put("num", et_money.getText().toString());
         HttpUtil.postResponse(Url.recharge, params, this, new ObjectCallBack<FeedbackInfo>(FeedbackInfo.class) {
             @Override

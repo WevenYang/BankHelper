@@ -63,11 +63,10 @@ public class ChooseCardActivity extends BaseActivity {
             public void onClick(View view) {
                 if (TextUtil.isValidate(BaseApplication.getCardId())){
 
-                    BaseApplication.setCardId(id);
                     Bundle b = new Bundle();
                     b.putString("name", bundle.get("name").toString());
                     b.putString("icon", bundle.get("icon").toString());
-                    IntentUtil.startActivity(ChooseCardActivity.this,MainActivity.class, b);
+                    IntentUtil.startActivity(ChooseCardActivity.this, MainActivity.class, b);
                 }else {
                     ToastUtil.showBottomToast("请选择一张银行卡");
                 }
@@ -104,13 +103,17 @@ public class ChooseCardActivity extends BaseActivity {
                             public void convert(final ViewHolderR holder, final BandCardInfo o) {
                                 String card = o.getNum().substring(12);
                                 TextView cardNum = holder.getView(R.id.tv_num);
-                                RadioButton rb = holder.getView(R.id.rb_item);
+                                final RadioButton rb = holder.getView(R.id.rb_item);
                                 rb.setVisibility(View.VISIBLE);
                                 cardNum.setText("**** **** **** " + card);
                                 rb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                                     @Override
                                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                                        id = o.getId();
+                                        if (TextUtil.isValidate(BaseApplication.getCardId())){
+                                            rb.setChecked(false);
+                                        }else {
+                                            BaseApplication.setCardId(o.getId());
+                                        }
                                     }
                                 });
                             }
