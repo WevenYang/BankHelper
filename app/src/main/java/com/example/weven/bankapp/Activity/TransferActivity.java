@@ -21,6 +21,7 @@ import com.example.weven.bankapp.View.EnterPayPassWordPpw;
 import com.example.weven.bankapp.View.PassWordView;
 import com.example.weven.bankapp.util.BigDecimalUtil;
 import com.example.weven.bankapp.util.HttpUtil;
+import com.example.weven.bankapp.util.IntentUtil;
 import com.example.weven.bankapp.util.MD5Util;
 import com.example.weven.bankapp.util.TextUtil;
 import com.example.weven.bankapp.util.ToastUtil;
@@ -39,7 +40,7 @@ import okhttp3.Call;
 public class TransferActivity extends BaseActivity {
 
     Button bt_transfer_next;
-    EditText et_num;
+    EditText et_num, et_month;
     TextView tv_hint, tv_money, tv_hint_money;
     CommonToolBar cb_title_announcement;
     Bundle bundle;
@@ -55,6 +56,7 @@ public class TransferActivity extends BaseActivity {
         bundle = getIntent().getBundleExtra("Bundle");
         bt_transfer_next = (Button) findViewById(R.id.bt_transfer_next);
         et_num = (EditText)findViewById(R.id.et_num);
+        et_month = (EditText) findViewById(R.id.et_month);
         cb_title_announcement = (CommonToolBar) findViewById(R.id.cb_title_announcement);
         tv_hint = (TextView) findViewById(R.id.tv_hint);
         tv_money = (TextView) findViewById(R.id.tv_money);
@@ -84,7 +86,12 @@ public class TransferActivity extends BaseActivity {
                     bt_transfer_next.setSelected(true);
                     if (bundle.getInt("type") == 0){
                         tv_hint_money.setVisibility(View.VISIBLE);
-                        setGiveMoneyText(Integer.valueOf(charSequence.toString()));
+                        if (TextUtil.isValidate(et_month.getText().toString())){
+                            setGiveMoneyText(Integer.valueOf(charSequence.toString()), Integer.valueOf(et_month.getText().toString()));
+                        }else {
+                            setGiveMoneyText(Integer.valueOf(charSequence.toString()), 1);
+                        }
+
                     }
                 }else {
                     bt_transfer_next.setClickable(false);
@@ -92,6 +99,32 @@ public class TransferActivity extends BaseActivity {
                     tv_hint_money.setVisibility(View.GONE);
                 }
 
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        et_month.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtil.isValidate(et_num.getText().toString())){
+                    if (TextUtil.isValidate(charSequence.toString())){
+                        setGiveMoneyText(Integer.valueOf(et_num.getText().toString()),
+                                Integer.valueOf(charSequence.toString()));
+                    }else {
+                        setGiveMoneyText(Integer.valueOf(et_num.getText().toString()), 1);
+                    }
+
+                }
 
             }
 
@@ -208,7 +241,7 @@ public class TransferActivity extends BaseActivity {
     public void postToTransfer(){
         Map<String, String> params = new HashMap<>();
         params.put("token", BaseApplication.getToken());
-        params.put("userid", BaseApplication.getUserId());
+        params.put("userid", BaseApplication.getCardId());
         params.put("num", et_num.getText().toString());
         params.put("type", bundle.getInt("type") + "");
         params.put("fix_deposit", bundle.getString("num"));
@@ -223,7 +256,8 @@ public class TransferActivity extends BaseActivity {
                         enterPayPassWordPpw.setToastMessage("操作成功");
                         bt_transfer_next.setSelected(false);
                         bt_transfer_next.setEnabled(false);
-                        EventBus.getDefault().post(new RefreshFixDeposit());
+
+                        IntentUtil.startActivity(TransferActivity.this, TransferFlowActivity.class);
                     }else {
                         enterPayPassWordPpw.completeLoading(false);
                         enterPayPassWordPpw.setToastMessage("操作失败("+ response.getMessage() + ")");
@@ -239,9 +273,9 @@ public class TransferActivity extends BaseActivity {
         });
     }
 
-    private void setGiveMoneyText(double rechargeMoney) {
-        double giveMoney = BigDecimalUtil.mul(rechargeMoney, 0.1);
-        tv_hint_money.setText("到期可获得" + giveMoney + "元");
+    private void setGiveMoneyText(double rechargeMoney, int month) {
+        double giveMoney = rechargeMoney * 0.023 / 365 * month * 30;
+        tv_hint_money.setText("到期可获得" + String.format("%.2f", giveMoney) + "元");
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

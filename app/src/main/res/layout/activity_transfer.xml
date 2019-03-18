@@ -151,8 +151,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_heightPercent="20%w"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:padding="10dp">
+
+        <TextView
+            android:layout_above="@+id/et_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="转入期限（月）"
+            />
+
+        <EditText
+            android:maxLength="2"
+            android:layout_alignParentBottom="true"
+            android:numeric="integer"
+            android:digits="11234567890"
+            android:id="@+id/et_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:background="@null"
+            android:hint="不填默认为1个月"
+            app:layout_widthPercent="60%w"
+            android:text="1"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="20%w"
+        android:padding="10dp">
 
         <TextView
             android:layout_above="@+id/et_num"

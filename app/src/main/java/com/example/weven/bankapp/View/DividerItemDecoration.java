@@ -32,7 +32,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private int circle_radius;
 
     // 图标
-    private Bitmap mIcon;
+    private Bitmap mIcon, loadingIcon;
 
 
     // 在构造函数里进行绘制的初始化，如画笔属性设置等
@@ -63,7 +63,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
          // 获取图标资源
          mIcon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.loading);
-
+         // 等待图标
+         loadingIcon = BitmapFactory.decodeResource(context.getResources(), R.mipmap.load);
     }
 
     // 重写getItemOffsets（）方法
@@ -100,8 +101,14 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             float centery = child.getTop() - itemView_topinterval + (itemView_topinterval + child.getHeight()) / 2;
             // 绘制轴点圆
 //            c.drawCircle(centerx, centery, circle_radius, mPaint);
-            // 通过Canvas绘制角标
-             c.drawBitmap(mIcon,centerx - circle_radius ,centery - circle_radius,mPaint);
+            if (i == 0){
+                // 通过Canvas绘制角标
+                c.drawBitmap(mIcon,centerx - circle_radius ,centery - circle_radius,mPaint);
+            }else {
+                // 通过Canvas绘制角标
+                c.drawBitmap(loadingIcon,centerx - circle_radius ,centery - circle_radius,mPaint);
+            }
+
 
             /**
              * 绘制上半轴线
