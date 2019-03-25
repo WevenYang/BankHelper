@@ -245,6 +245,7 @@ public class TransferActivity extends BaseActivity {
         params.put("num", et_num.getText().toString());
         params.put("type", bundle.getInt("type") + "");
         params.put("fix_deposit", bundle.getString("num"));
+        params.put("duration", et_month.getText().toString());
         HttpUtil.postResponse(Url.transfer, params, this, new ObjectCallBack<FeedbackInfo>(FeedbackInfo.class) {
             @Override
             public void onSuccess(FeedbackInfo response) {
