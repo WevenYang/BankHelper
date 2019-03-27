@@ -66,8 +66,13 @@ public class AllMessagesAdapter extends RecyclerView.Adapter<AllMessagesAdapter.
                 break;
             case 5:
                 holder.icon.setImageResource(R.mipmap.nav_icon);
-                holder.messages_type.setText("定期转入通知");
+                holder.messages_type.setText("转入成功通知");
                 holder.messages_content.setText("您的定期余额有一笔" + data.get(position).getNum() + "元的转入,审核成功，等待收益");
+                break;
+            case 6:
+                holder.icon.setImageResource(R.mipmap.nav_icon);
+                holder.messages_type.setText("转入失败通知");
+                holder.messages_content.setText("您的定期余额有一笔" + data.get(position).getNum() + "元的转入,审核被拒绝，请联系管理员");
                 break;
             default:
                 break;

@@ -27,6 +27,7 @@ import com.example.weven.bankapp.util.TextUtil;
 import com.example.weven.bankapp.util.ToastUtil;
 import com.example.weven.bankapp.util.okhttp.callback.ObjectCallBack;
 import com.zhy.android.percent.support.PercentLinearLayout;
+import com.zhy.android.percent.support.PercentRelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -47,6 +48,7 @@ public class TransferActivity extends BaseActivity {
     String currentDeposit;
     EnterPayPassWordPpw enterPayPassWordPpw;
     PercentLinearLayout pll_parent, pll_dingqi;
+    PercentRelativeLayout prl_content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class TransferActivity extends BaseActivity {
         setContentView(R.layout.activity_transfer);
         EventBus.getDefault().register(TransferActivity.this);
         bundle = getIntent().getBundleExtra("Bundle");
+        prl_content = (PercentRelativeLayout) findViewById(R.id.prl_content);
         bt_transfer_next = (Button) findViewById(R.id.bt_transfer_next);
         et_num = (EditText)findViewById(R.id.et_num);
         et_month = (EditText) findViewById(R.id.et_month);
@@ -70,6 +73,7 @@ public class TransferActivity extends BaseActivity {
         }else if(bundle.getInt("type") == 1){
             tv_hint.setText("当前可转出定期的余额为");
             tv_money.setText(bundle.get("num").toString());
+            prl_content.setVisibility(View.GONE);
         }else {
 
         }
